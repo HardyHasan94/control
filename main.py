@@ -109,7 +109,8 @@ if __name__ == "__main__":
                                         n_episodes=n_eval_episodes,
                                         render=render_evaluation,
                                         record=record_evaluation)
-        print(f"The model {model_name} got a mean return of {np.mean(episode_rewards).round()}!")
+        print(f"The model {model_name} got a mean return of {np.mean(episode_rewards).round()} "
+              f"over {n_eval_episodes} episodes!")
 
 
 # =============== END OF FILE ===============

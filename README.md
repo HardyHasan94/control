@@ -2,9 +2,9 @@
 
 Implementation of the DDPG algorithm using tensorflow.keras and training agents on several environments.
 
-The DDPG algorithm is based on the DQN algorithm and DPG algorithm, where the agent plays in continuous-based-action environments, and the agent model consists of two networks, an Actor network that is used to sample actions, and a Critic network that is used to compute the action-value Q.
+The DDPG algorithm is based on the DQN algorithm and DPG algorithm, where an agent plays in continuous-based-action environments, and its model consists of two networks, an Actor network that is used to sample actions, and a Critic network that is used to compute the action-value Q.
 
-## Structure
+## Project structure
 
 ```
 ├── README.md
@@ -24,7 +24,7 @@ The DDPG algorithm is based on the DQN algorithm and DPG algorithm, where the ag
 ## Usage
 For training an agent on OpenAI gym environments, such as `BipedalWalker-v3`, run
 
-```python3 main.py --train --env_name=BipedalWalker-v3 --model_name='coolWalker'  --seed=2023```
+```python3 main.py --train --env_name=BipedalWalker-v3 --model_name=coolWalker  --seed=2023```
 
 The agent models will be saved at `trained_models/BipedalWalker-v3_2023_coolWalker`.
 
@@ -38,11 +38,16 @@ For training agents on MuJoCo environments, it needs to be installed manually fi
 
 
 ## Results
-Agents three different environments are trained. These are Lunar Lander, Bipedal Walker and Half Cheetah. Below are the training episodic returns. For the first two envs three agents are trained with different seeds and the graphs shows average return and the standard error is the shaded area of the runs. For HalfCheetah only one agent is trained.
+Agents on three different environments are trained. These are Lunar Lander, Bipedal Walker and Half Cheetah. Below are the training episodic returns. For the first two envs three agents are trained with different seeds and the graphs shows average return and the standard error is the shaded area of the runs. For HalfCheetah only one agent is trained.
 
-![alt text](media/lunarlander.pdf?raw=true "LunarLander")
-![alt text](media/bipedalwalker.pdf?raw=true "BipedalWalker")
-![alt text](media/half_cheetah.pdf?raw=true "HalfCheetah")
+| Lunar Lander                                               | Bipedal Walker                                                 | Half Cheetah                                               |
+|------------------------------------------------------------|----------------------------------------------------------------|------------------------------------------------------------|
+| ![alt text](media/lunar_lander.png?raw=true "LunarLander") | ![alt text](media/bipedal_walker.png?raw=true "BipedalWalker") | ![alt text](media/half_cheetah.png?raw=true "HalfCheetah") 
+
+## Videos
+| Lunar Lander                             | Bipedal Walker       | Half Cheetah                                              |
+|------------------------------------------|----------------------|-----------------------|
+| ![LunarLanderContinuous-v2.gif](videos%2FLunarLanderContinuous-v2.gif) | ![BipedalWalker-v3.gif](videos%2FBipedalWalker-v3.gif)| ![HalfCheetah-v4.gif](videos%2FHalfCheetah-v4.gif) |
 
 ## Author
 

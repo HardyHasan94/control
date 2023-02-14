@@ -9,6 +9,8 @@ import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from moviepy.editor import ImageSequenceClip
+
 
 def set_seed(seed=2023):
     """
@@ -126,5 +128,22 @@ def plot_training(all_episode_returns, all_episode_lengths, all_critic_losses, f
     plt.savefig(f'media/{figure_name}.pdf')
 
     return None
+
+
+def record_gif(images, name):
+    """
+    Create a gif from a list of images.
+    Args:
+        images: list
+            Each image is a numpy.ndarray.
+        name: str
+            Name of gif.
+
+    Returns:
+        None
+
+    """
+    clip = ImageSequenceClip(sequence=images, fps=48)
+    clip.write_gif(f"videos/{name}.gif")
 
 # =============== END OF FILE ===============

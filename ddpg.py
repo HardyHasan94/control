@@ -182,17 +182,18 @@ def evaluate(agent, env_name, n_episodes, obs_shape, n_actions, seed=2023, rende
     episode_returns = []
 
     if record:
-        env = gym.wrappers.RecordVideo(env=env,
-                                       video_folder=f'./videos/{env_name}/',
-                                       episode_trigger=lambda _: True,
-                                       name_prefix=env_name)
+        gif_images = []
 
     for episode in range(n_episodes):
-        state, info = env.reset(seed=seed)
+        state, info = env.reset()  # seed=seed
         done = False
         episode_return = 0
 
         while not done:
+            if record:
+                image = env.render()
+                gif_images.append(image)
+
             action = agent.act(state.reshape(obs_shape)).numpy().clip(action_low, action_high).reshape((n_actions, ))
             state, reward, terminated, truncated, info = env.step(action)
             done = terminated or truncated
@@ -204,6 +205,10 @@ def evaluate(agent, env_name, n_episodes, obs_shape, n_actions, seed=2023, rende
         episode_returns.append(episode_return)
 
     env.close()
+
+    if record:
+        utils.record_gif(images=gif_images, name=env_name)
+
     return episode_returns
 
 # =============== END OF FILE ===============
