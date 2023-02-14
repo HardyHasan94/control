@@ -1,7 +1,12 @@
 numpy
 matplotlib
 seaborn
+scipy
 gymnasium[classic_control]
 gymnasium[box2d]
 gymnasium[mujoco]
+mujoco-py
+moviepy
 tensorflow==2.9.0
+wandb
+python-dotenv
